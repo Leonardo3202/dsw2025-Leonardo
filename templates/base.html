@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auth</title>
+</head>
+<body>
+
+<nav>
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'signup' %}">Cadastro</a>
+    <a href="{% url 'logout' %}">Logout</a>
+</nav>
+
+<hr>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

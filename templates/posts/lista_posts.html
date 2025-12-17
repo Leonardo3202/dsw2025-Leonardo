@@ -1,0 +1,37 @@
+<div>
+   {% if user.is_authenticated %}
+    <span>Olá, {{ user.username }}!</span>
+    | <a href="{% url 'criar_post' %}">Novo post</a>
+    | <form action="{% url 'logout' %}" method="post" style="display:inline">
+        {% csrf_token %}
+        <button type="submit">Sair</button>
+      </form>
+{% else %}
+    <a href="{% url 'login' %}">Entrar</a>
+    | <a href="{% url 'signup' %}">Cadastrar</a>
+{% endif %}
+
+</div>
+
+<hr>
+
+
+<h1>Posts</h1>
+
+<a href="{% url 'criar_post' %}">Novo post</a>
+<hr>
+
+{% for post in posts %}
+    <p><b>{{ post.autor }}</b></p>
+
+    {% if post.comentario %}
+        <p>{{ post.comentario }}</p>
+    {% endif %}
+
+    {% if post.foto %}
+    <img src="{{ post.foto.url }}" width="300">
+    {% endif %}
+
+
+    <hr>
+{% endfor %}

@@ -1,0 +1,15 @@
+<h1>Novo Post</h1>
+
+{% if erro %}
+    <p style="color:red">{{ erro }}</p>
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <textarea name="comentario" placeholder="Escreva um comentário (opcional)"></textarea><br><br>
+
+    <input type="file" name="foto"><br><br>
+
+    <button type="submit">Publicar</button>
+</form>
